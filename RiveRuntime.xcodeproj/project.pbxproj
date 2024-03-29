@@ -70,6 +70,7 @@
 		83DE4CA02AAA072B00B88B72 /* PlatformCGImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83DE4C9F2AAA072B00B88B72 /* PlatformCGImage.mm */; };
 		83DE4CA22AAA077200B88B72 /* PlatformCGImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DE4CA12AAA077200B88B72 /* PlatformCGImage.h */; };
 		83DE4CA72AAAE72100B88B72 /* RenderContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 83DE4CA62AAAE72000B88B72 /* RenderContext.h */; };
+		8C6F6F692BB658E600E85077 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F6F682BB658E600E85077 /* gaussianBlur.metal */; };
 		C34609FC27FF9114002DBCB7 /* RiveFile+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34609FB27FF9114002DBCB7 /* RiveFile+Extensions.swift */; };
 		C3468E5827EB9887008652FD /* RiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3468E5727EB9887008652FD /* RiveView.swift */; };
 		C3468E5A27ECC7C6008652FD /* RiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3468E5927ECC7C6008652FD /* RiveViewModel.swift */; };
@@ -166,6 +167,7 @@
 		83DE4C9F2AAA072B00B88B72 /* PlatformCGImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlatformCGImage.mm; sourceTree = "<group>"; };
 		83DE4CA12AAA077200B88B72 /* PlatformCGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformCGImage.h; sourceTree = "<group>"; };
 		83DE4CA62AAAE72000B88B72 /* RenderContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderContext.h; sourceTree = "<group>"; };
+		8C6F6F682BB658E600E85077 /* gaussianBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = gaussianBlur.metal; sourceTree = "<group>"; };
 		C34609FB27FF9114002DBCB7 /* RiveFile+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RiveFile+Extensions.swift"; sourceTree = "<group>"; };
 		C3468E5727EB9887008652FD /* RiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveView.swift; sourceTree = "<group>"; };
 		C3468E5927ECC7C6008652FD /* RiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveViewModel.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				046FB7E2264EAA5E000129B1 /* RiveArtboard.mm */,
 				2A707936272628AD00C035A1 /* rive_renderer_view.mm */,
 				046FB7E4264EAA5F000129B1 /* RiveLinearAnimationInstance.mm */,
+				8C6F6F682BB658E600E85077 /* gaussianBlur.metal */,
 				046FB7E8264EAA5F000129B1 /* RiveStateMachineInstance.mm */,
 				046FB7E5264EAA5F000129B1 /* RiveSMIInput.mm */,
 				C9601F2A250C25930032AA07 /* RiveRenderer.mm */,
@@ -551,6 +554,7 @@
 				046FB7F8264EAA60000129B1 /* RiveStateMachineInstance.mm in Sources */,
 				C3468E5C27ED4C41008652FD /* RiveModel.swift in Sources */,
 				046FB7FF264EAA61000129B1 /* RiveFile.mm in Sources */,
+				8C6F6F692BB658E600E85077 /* gaussianBlur.metal in Sources */,
 				046FB7F2264EAA60000129B1 /* RiveArtboard.mm in Sources */,
 				046FB7F4264EAA60000129B1 /* RiveLinearAnimationInstance.mm in Sources */,
 				E57798A62A72C9C500FF25C3 /* RiveTextValueRun.mm in Sources */,

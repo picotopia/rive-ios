@@ -253,6 +253,8 @@
 		83C89ACF2988709400044C17 /* marty.riv in Resources */ = {isa = PBXBuildFile; fileRef = 83C89ACE2988709400044C17 /* marty.riv */; };
 		83C89AD1298870A700044C17 /* paper.riv in Resources */ = {isa = PBXBuildFile; fileRef = 83C89AD0298870A700044C17 /* paper.riv */; };
 		83DE4CB52AB397A800B88B72 /* Bear.riv in Resources */ = {isa = PBXBuildFile; fileRef = 83DE4CB42AB3974300B88B72 /* Bear.riv */; };
+		8C6F6F662BB658B700E85077 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F6F652BB658B700E85077 /* gaussianBlur.metal */; };
+		8C6F6F672BB658B700E85077 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F6F652BB658B700E85077 /* gaussianBlur.metal */; };
 		C324DB5B2807216B0060589F /* RiveSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324DB5A2807216B0060589F /* RiveSlider.swift */; };
 		C324DB5D280728690060589F /* RiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324DB5C280728690060589F /* RiveButton.swift */; };
 		C324DB5F280740FB0060589F /* rbutton.riv in Resources */ = {isa = PBXBuildFile; fileRef = C324DB5E280740FB0060589F /* rbutton.riv */; };
@@ -403,6 +405,7 @@
 		83C89ACE2988709400044C17 /* marty.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = marty.riv; sourceTree = "<group>"; };
 		83C89AD0298870A700044C17 /* paper.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = paper.riv; sourceTree = "<group>"; };
 		83DE4CB42AB3974300B88B72 /* Bear.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bear.riv; sourceTree = "<group>"; };
+		8C6F6F652BB658B700E85077 /* gaussianBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = gaussianBlur.metal; path = ../../../../Source/Renderer/gaussianBlur.metal; sourceTree = "<group>"; };
 		C324DB5A2807216B0060589F /* RiveSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveSlider.swift; sourceTree = "<group>"; };
 		C324DB5C280728690060589F /* RiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveButton.swift; sourceTree = "<group>"; };
 		C324DB5E280740FB0060589F /* rbutton.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = rbutton.riv; sourceTree = "<group>"; };
@@ -495,6 +498,7 @@
 				046AFA722673B00B004ED497 /* BlendModes.swift */,
 				04C4C83D2646FE410047E614 /* StateMachine.swift */,
 				83C89ACA29886ECB00044C17 /* StressTest.swift */,
+				8C6F6F652BB658B700E85077 /* gaussianBlur.metal */,
 				043025EE2AF905B100320F2E /* CachedAssets.swift */,
 				0453FCB82B012DA9001185C8 /* SimpleOutOfBand.swift */,
 			);
@@ -782,11 +786,15 @@
 				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = Rive;
 				TargetAttributes = {
+					040553CF2B7A2858008F076A = {
+						LastSwiftMigration = 1530;
+					};
 					04E51C322A151A1E0075E473 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 					C9C73E9324FC471E00EF9516 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -1104,6 +1112,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C6F6F662BB658B700E85077 /* gaussianBlur.metal in Sources */,
 				040553D32B7A2858008F076A /* SimpleHttpAnimation.swift in Sources */,
 				040553D42B7A2858008F076A /* RiveButton.swift in Sources */,
 				040553D52B7A2858008F076A /* AppDelegate.swift in Sources */,
@@ -1153,6 +1162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C6F6F672BB658B700E85077 /* gaussianBlur.metal in Sources */,
 				0448838F29F82DD000D7523E /* SimpleHttpAnimation.swift in Sources */,
 				C324DB5D280728690060589F /* RiveButton.swift in Sources */,
 				C9C73E9824FC471E00EF9516 /* AppDelegate.swift in Sources */,
@@ -1253,6 +1263,8 @@
 		0405542E2B7A2858008F076A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Source/Preview Content\"";
@@ -1266,6 +1278,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zgotsch.app.ios.RiveExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1274,6 +1288,8 @@
 		0405542F2B7A2858008F076A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Source/Preview Content\"";
@@ -1287,6 +1303,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zgotsch.app.ios.RiveExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1471,6 +1488,7 @@
 		C9C73EBF24FC471E00EF9516 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Source/Preview Content\"";
@@ -1484,6 +1502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zgotsch.app.ios.RiveExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1492,6 +1511,7 @@
 		C9C73EC024FC471E00EF9516 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Source/Preview Content\"";

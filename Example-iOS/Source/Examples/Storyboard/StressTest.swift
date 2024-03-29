@@ -43,7 +43,7 @@ class StressTestViewController: UIViewController {
 // New RiveView that overrides the drawing logic to re-draw the view multiple times.
 class CustomRiveView: RiveView {
     private var rModel: RiveModel?
-    public var drawRepeat: Int32 = 1
+    public var drawRepeat: Int32 = 10
     init(model: RiveModel, autoPlay: Bool = true) {
         super.init()
         rModel = model
@@ -65,6 +65,7 @@ class CustomRiveView: RiveView {
         var x:Float = x0
         var y:Float = -pad * 4
         for i in 1...drawRepeat {
+          // 0x111
             if (i & 0x7) == 0 {
                 y += pad
                 x = x0
@@ -72,8 +73,10 @@ class CustomRiveView: RiveView {
             save()
             transform(1, xy:0, yx:0, yy:1, tx:x, ty:y);
             draw(with: artboard)
+            
             restore()
             x += pad
         }
+      self.currentDrawable?.texture
     }
 }

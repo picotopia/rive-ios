@@ -121,6 +121,36 @@
     _renderer = nil;
 
     id<MTLCommandBuffer> commandBuffer = [_renderContext.metalQueue commandBuffer];
+  
+  id<MTLDevice> _device = [_renderContext metalDevice];
+  NSError *error = nil;
+  id<MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
+  id<MTLFunction> kernelFunction = [defaultLibrary newFunctionWithName:@"gaussianBlur"];
+  id<MTLComputePipelineState> computePipeline = [_device newComputePipelineStateWithFunction:kernelFunction error:&error];
+
+  if (!computePipeline) {
+      NSLog(@"Failed to create compute pipeline state: %@", error);
+      return;
+  }
+  
+  id<MTLComputeCommandEncoder> commandEncoder = [commandBuffer computeCommandEncoder];
+
+  [commandEncoder setComputePipelineState:computePipeline];
+  id<MTLTexture> inputTexture = [[self currentDrawable] texture];
+  [commandEncoder setTexture:inputTexture atIndex:0];
+  [commandEncoder setTexture:inputTexture atIndex:1];
+
+  float sigma = 1.5;
+  [commandEncoder setBytes:&sigma length:sizeof(float) atIndex:0];
+
+  MTLSize threadgroupSize = MTLSizeMake(8, 8, 1);
+  MTLSize threadgroupCount = MTLSizeMake((inputTexture.width + threadgroupSize.width - 1) / threadgroupSize.width,
+                                         (inputTexture.height + threadgroupSize.height - 1) / threadgroupSize.height,
+                                         1);
+
+  [commandEncoder dispatchThreadgroups:threadgroupCount threadsPerThreadgroup:threadgroupSize];
+  [commandEncoder endEncoding];
+  
     [commandBuffer presentDrawable:[self currentDrawable]];
     [commandBuffer commit];
     bool paused = [self isPaused];
