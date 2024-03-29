@@ -792,7 +792,7 @@
 					"-lrive_pls_renderer_macos",
 					"-lrive_cg_renderer_macos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = rive.app.ios.runtime.RiveRuntime;
+				PRODUCT_BUNDLE_IDENTIFIER = zgotsch.app.ios.runtime.RiveRuntime;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -880,7 +880,7 @@
 					"-lrive_pls_renderer_macos",
 					"-lrive_cg_renderer_macos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = rive.app.ios.runtime.RiveRuntime;
+				PRODUCT_BUNDLE_IDENTIFIER = zgotsch.app.ios.runtime.RiveRuntime;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
