@@ -255,6 +255,8 @@
 		83DE4CB52AB397A800B88B72 /* Bear.riv in Resources */ = {isa = PBXBuildFile; fileRef = 83DE4CB42AB3974300B88B72 /* Bear.riv */; };
 		8C6F6F662BB658B700E85077 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F6F652BB658B700E85077 /* gaussianBlur.metal */; };
 		8C6F6F672BB658B700E85077 /* gaussianBlur.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F6F652BB658B700E85077 /* gaussianBlur.metal */; };
+		8C6F6F792BB76FF500E85077 /* pico.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8C6F6F762BB76FF500E85077 /* pico.riv */; };
+		8C6F6F7A2BB76FF500E85077 /* pico.riv in Resources */ = {isa = PBXBuildFile; fileRef = 8C6F6F762BB76FF500E85077 /* pico.riv */; };
 		C324DB5B2807216B0060589F /* RiveSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324DB5A2807216B0060589F /* RiveSlider.swift */; };
 		C324DB5D280728690060589F /* RiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324DB5C280728690060589F /* RiveButton.swift */; };
 		C324DB5F280740FB0060589F /* rbutton.riv in Resources */ = {isa = PBXBuildFile; fileRef = C324DB5E280740FB0060589F /* rbutton.riv */; };
@@ -406,6 +408,7 @@
 		83C89AD0298870A700044C17 /* paper.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = paper.riv; sourceTree = "<group>"; };
 		83DE4CB42AB3974300B88B72 /* Bear.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bear.riv; sourceTree = "<group>"; };
 		8C6F6F652BB658B700E85077 /* gaussianBlur.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = gaussianBlur.metal; path = ../../../../Source/Renderer/gaussianBlur.metal; sourceTree = "<group>"; };
+		8C6F6F762BB76FF500E85077 /* pico.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = pico.riv; sourceTree = "<group>"; };
 		C324DB5A2807216B0060589F /* RiveSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveSlider.swift; sourceTree = "<group>"; };
 		C324DB5C280728690060589F /* RiveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveButton.swift; sourceTree = "<group>"; };
 		C324DB5E280740FB0060589F /* rbutton.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = rbutton.riv; sourceTree = "<group>"; };
@@ -576,6 +579,7 @@
 				C3C074A7283FC75800E8EB33 /* testanimation.riv */,
 				C3C074AA283FC75900E8EB33 /* teststatemachine.riv */,
 				C3E2B5872833ECB500A8651B /* bullet_man_game.riv */,
+				8C6F6F762BB76FF500E85077 /* pico.riv */,
 				C3745FCB282AE2320087F4AF /* hero_editor.riv */,
 				C3E383472837E6B00029D65E /* watch_v1.riv */,
 				C3ECAC29281837B300A81123 /* leg_day_events_example.riv */,
@@ -939,6 +943,7 @@
 				0405540C2B7A2858008F076A /* rope.riv in Resources */,
 				0405540D2B7A2858008F076A /* teststatemachine.riv in Resources */,
 				0405540E2B7A2858008F076A /* switch_event_example.riv in Resources */,
+				8C6F6F792BB76FF500E85077 /* pico.riv in Resources */,
 				0405540F2B7A2858008F076A /* clean_icon_set.riv in Resources */,
 				040554102B7A2858008F076A /* text_test_2.riv in Resources */,
 				040554112B7A2858008F076A /* two_bone_ik.riv in Resources */,
@@ -1063,6 +1068,7 @@
 				042C88DE2644447500E7DBB2 /* rope.riv in Resources */,
 				C3C074AC283FC75900E8EB33 /* teststatemachine.riv in Resources */,
 				C3ECAC2D281837B300A81123 /* switch_event_example.riv in Resources */,
+				8C6F6F7A2BB76FF500E85077 /* pico.riv in Resources */,
 				0480028B2729AA4400F7132B /* clean_icon_set.riv in Resources */,
 				E57798AE2A73264100FF25C3 /* text_test_2.riv in Resources */,
 				04F1C80B26A8442300CEE6BE /* two_bone_ik.riv in Resources */,

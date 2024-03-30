@@ -11,11 +11,15 @@ import RiveRuntime
 import SwiftUI
 
 class SimpleAnimationViewController: UIViewController {
-    var viewModel = RiveViewModel(fileName: "truck")
+    var viewModel = RiveViewModel(fileName: "pico")
     
     override func viewWillAppear(_ animated: Bool) {
+      try! viewModel.configureModel(animationName: "Cluster2")
         let riveView = viewModel.createRiveView()
         view.addSubview(riveView)
         riveView.frame = view.frame
+      
+      riveView.backgroundColor = .clear
+      view.backgroundColor = .blue
     }
 }
