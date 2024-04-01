@@ -402,7 +402,7 @@ open class RiveViewModel: NSObject, ObservableObject, RiveFileDelegate, RiveStat
     /// adding to the view hierarchy with `.createRiveView()` in UIKit.
     ///
     /// - Parameter view: the `RiveView` that this `RiveViewModel` will maintain
-    fileprivate func registerView(_ view: RiveView) {
+    open func registerView(_ view: RiveView) {
         riveView = view
         riveView!.playerDelegate = self
         riveView!.stateMachineDelegate = self
