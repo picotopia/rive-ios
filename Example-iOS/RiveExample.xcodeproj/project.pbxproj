@@ -69,7 +69,6 @@
 		040553BF2B7A274B008F076A /* Bear.riv in Resources */ = {isa = PBXBuildFile; fileRef = 83DE4CB42AB3974300B88B72 /* Bear.riv */; };
 		040553C02B7A274B008F076A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E51C3C2A151A1F0075E473 /* Preview Assets.xcassets */; };
 		040553C12B7A274B008F076A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E51C392A151A1F0075E473 /* Assets.xcassets */; };
-		040553CB2B7A276A008F076A /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 040553CA2B7A276A008F076A /* RiveRuntime */; };
 		040553D32B7A2858008F076A /* SimpleHttpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448838C29F82DD000D7523E /* SimpleHttpAnimation.swift */; };
 		040553D42B7A2858008F076A /* RiveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324DB5C280728690060589F /* RiveButton.swift */; };
 		040553D52B7A2858008F076A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C73E9724FC471E00EF9516 /* AppDelegate.swift */; };
@@ -157,7 +156,6 @@
 		040554282B7A2858008F076A /* clipping.riv in Resources */ = {isa = PBXBuildFile; fileRef = 042C88D92644447500E7DBB2 /* clipping.riv */; };
 		040554292B7A2858008F076A /* watch_v1.riv in Resources */ = {isa = PBXBuildFile; fileRef = C3E383472837E6B00029D65E /* watch_v1.riv */; };
 		0405542A2B7A2858008F076A /* prop_example.riv in Resources */ = {isa = PBXBuildFile; fileRef = E5A7874B27E1158E0056F24B /* prop_example.riv */; };
-		040554332B7A291A008F076A /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 040554322B7A291A008F076A /* RiveRuntime */; };
 		041265222B0BC5A5009400EC /* SwiftSimpleAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041265212B0BC5A5009400EC /* SwiftSimpleAssets.swift */; };
 		042C88832643D6B900E7DBB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042C88822643D6B900E7DBB2 /* Main.storyboard */; };
 		042C88882643DB7100E7DBB2 /* SimpleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C88872643DB7100E7DBB2 /* SimpleAnimation.swift */; };
@@ -459,7 +457,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040553CB2B7A276A008F076A /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +464,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040554332B7A291A008F076A /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +714,6 @@
 			);
 			name = "Preview (macOS)";
 			packageProductDependencies = (
-				040553CA2B7A276A008F076A /* RiveRuntime */,
 			);
 			productName = "Example (macOS)";
 			productReference = 040553C72B7A274B008F076A /* Preview (macOS).app */;
@@ -738,7 +733,6 @@
 			);
 			name = "Preview (iOS)";
 			packageProductDependencies = (
-				040554322B7A291A008F076A /* RiveRuntime */,
 			);
 			productName = RiveExample;
 			productReference = 040554302B7A2858008F076A /* Preview (iOS).app */;
@@ -812,7 +806,6 @@
 			);
 			mainGroup = C9C73E8B24FC471E00EF9516;
 			packageReferences = (
-				F8772AD82AD9483800AB5920 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = C9C73E9524FC471E00EF9516 /* Products */;
 			projectDirPath = "";
@@ -1585,30 +1578,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F8772AD82AD9483800AB5920 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rive-app/rive-ios/";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		040553CA2B7A276A008F076A /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8772AD82AD9483800AB5920 /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
-		};
-		040554322B7A291A008F076A /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8772AD82AD9483800AB5920 /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9C73E8C24FC471E00EF9516 /* Project object */;
 }

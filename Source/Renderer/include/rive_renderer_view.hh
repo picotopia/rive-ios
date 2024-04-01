@@ -15,6 +15,7 @@
 - (void)transform:(float)xx xy:(float)xy yx:(float)yx yy:(float)yy tx:(float)tx ty:(float)ty;
 - (void)drawWithArtboard:(RiveArtboard*)artboard;
 - (void)drawRive:(CGRect)rect size:(CGSize)size;
+- (void)postprocess:(id<MTLCommandBuffer>)commandEncoder onDevice:(id<MTLDevice>)device;
 - (bool)isPaused;
 - (CGPoint)artboardLocationFromTouchLocation:(CGPoint)touchLocation
                                   inArtboard:(CGRect)artboardRect

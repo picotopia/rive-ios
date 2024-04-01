@@ -102,8 +102,12 @@
 
 - (void)drawRive:(CGRect)rect size:(CGSize)size
 {
-  NSLog(@"Hello zach");
     // Intended to be overridden.
+}
+
+- (void)postprocess:(id<MTLCommandBuffer>)commandEncoder onDevice:(id<MTLDevice>)device
+{
+    // Intended to be overridden
 }
 
 - (bool)isPaused
@@ -135,91 +139,9 @@
     _renderer = nil;
 
     id<MTLCommandBuffer> commandBuffer = [_renderContext.metalQueue commandBuffer];
-#if TRUE
   
-  id<MTLDevice> _device = [_renderContext metalDevice];
-  id<MTLTexture> viewTexture = [[self currentDrawable] texture];
-  
-  MTLTextureDescriptor *descriptor = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:viewTexture.pixelFormat
-                                                                                          width:viewTexture.width
-                                                                                         height:viewTexture.height
-                                                                                      mipmapped:NO];
-  descriptor.usage = MTLTextureUsageShaderRead | MTLTextureUsageShaderWrite;
-  
-  id<MTLTexture> tmp0Texture = [_device newTextureWithDescriptor:descriptor];
-  id<MTLTexture> tmp1Texture = [_device newTextureWithDescriptor:descriptor];
-  id<MTLTexture> blurredTexture = [_device newTextureWithDescriptor:descriptor];
+  [self postprocess:commandBuffer onDevice:[_renderContext metalDevice]];
 
-  id<MTLLibrary> defaultLibrary = [_device newDefaultLibrary];
-  id<MTLFunction> horizontalBlur = [defaultLibrary newFunctionWithName:@"horizontalGaussianBlur"];
-  id<MTLFunction> verticalBlur = [defaultLibrary newFunctionWithName:@"verticalGaussianBlur"];
-  id<MTLFunction> alphaMask = [defaultLibrary newFunctionWithName:@"alphaMask"];
-  
-  NSError *error = nil;
-  id<MTLComputePipelineState> horizontalBlurPipeline = [_device newComputePipelineStateWithFunction:horizontalBlur error:&error];
-  if (!horizontalBlurPipeline) {
-      NSLog(@"Failed to create compute pipeline state: %@", error);
-      return;
-  }
-  error = nil;
-  id<MTLComputePipelineState> verticalBlurPipeline = [_device newComputePipelineStateWithFunction:verticalBlur error:&error];
-  if (!verticalBlurPipeline) {
-      NSLog(@"Failed to create compute pipeline state: %@", error);
-      return;
-  }
-  error = nil;
-  id<MTLComputePipelineState> alphaMaskPipeline = [_device newComputePipelineStateWithFunction:alphaMask error:&error];
-  if (!alphaMaskPipeline) {
-      NSLog(@"Failed to create compute pipeline state: %@", error);
-      return;
-  }
-  
-  id<MTLBlitCommandEncoder> blitCommandEncoder = [commandBuffer blitCommandEncoder];
-  [blitCommandEncoder copyFromTexture:viewTexture toTexture:tmp0Texture];
-  [blitCommandEncoder endEncoding];
-  
-  MTLSize threadgroupSize = MTLSizeMake(8, 8, 1);
-  MTLSize threadgroupCount = MTLSizeMake((viewTexture.width + threadgroupSize.width - 1) / threadgroupSize.width,
-                                         (viewTexture.height + threadgroupSize.height - 1) / threadgroupSize.height,
-                                         1);
-  
-  id<MTLComputeCommandEncoder> commandEncoder = [commandBuffer computeCommandEncoder];
-  float sigma = 10;
-  
-  [commandEncoder setComputePipelineState:horizontalBlurPipeline];
-  [commandEncoder setTexture:tmp0Texture atIndex:0];
-  [commandEncoder setTexture:tmp1Texture atIndex:1];
-  [commandEncoder setBytes:&sigma length:sizeof(float) atIndex:0];
-  [commandEncoder dispatchThreadgroups:threadgroupCount threadsPerThreadgroup:threadgroupSize];
-  [commandEncoder endEncoding];
-  
-  id<MTLComputeCommandEncoder> verticalEncoder = [commandBuffer computeCommandEncoder];
-  [verticalEncoder setComputePipelineState:verticalBlurPipeline];
-  [verticalEncoder setTexture:tmp1Texture atIndex:0];
-  [verticalEncoder setTexture:blurredTexture atIndex:1];
-  [verticalEncoder setBytes:&sigma length:sizeof(float) atIndex:0];
-  [verticalEncoder dispatchThreadgroups:threadgroupCount threadsPerThreadgroup:threadgroupSize];
-  [verticalEncoder endEncoding];
-  
-  id<MTLComputeCommandEncoder> blurEncoder = [commandBuffer computeCommandEncoder];
-  [blurEncoder setComputePipelineState:alphaMaskPipeline];
-  [blurEncoder setTexture:blurredTexture atIndex:0];
-  [blurEncoder setTexture:tmp0Texture atIndex:1];
-  [blurEncoder setTexture:viewTexture atIndex:2];
-  [blurEncoder dispatchThreadgroups:threadgroupCount threadsPerThreadgroup:threadgroupSize];
-  [blurEncoder endEncoding];
-  
-//  id<MTLBlitCommandEncoder> blitCommandEncoder2 = [commandBuffer blitCommandEncoder];
-//  [blitCommandEncoder2 copyFromTexture:blurredTexture toTexture:viewTexture];
-//  [blitCommandEncoder2 endEncoding];
-  
-  [commandBuffer addCompletedHandler:^(id<MTLCommandBuffer> buffer) {
-      if (buffer.error) {
-          NSLog(@"Error occurred: %@", buffer.error);
-      }
-  }];
-  
-#endif
     [commandBuffer presentDrawable:[self currentDrawable]];
     [commandBuffer commit];
 //  [commandBuffer waitUntilCompleted];

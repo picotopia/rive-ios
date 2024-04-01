@@ -256,6 +256,10 @@ open class RiveView: RiveRendererView {
         draw(with: artboard)
         
     }
+  
+  override open func postprocess(_ commandBuffer: MTLCommandBuffer, on device: MTLDevice) {
+    // override me
+  }
     
     // MARK: - UIResponder
     #if os(iOS)
