@@ -32,9 +32,6 @@
     [self setFramebufferOnly:_renderContext.framebufferOnly];
     [self setSampleCount:1];
   
-  self.opaque = false;
-  self.backgroundColor = [UIColor clearColor];
-  
     return self;
 }
 
@@ -49,9 +46,6 @@
     [self setColorPixelFormat:MTLPixelFormatBGRA8Unorm];
     [self setFramebufferOnly:_renderContext.framebufferOnly];
     [self setSampleCount:1];
-  
-  self.opaque = false;
-  self.backgroundColor = [UIColor clearColor];
   
     return value;
 }
@@ -117,11 +111,6 @@
 
 - (void)drawRect:(CGRect)rect
 {
-  // XXX
-  self.opaque = false;
-  self.layer.backgroundColor = [UIColor clearColor].CGColor;
-  // XXX
-  
     [super drawRect:rect];
     if (![[self currentDrawable] texture])
     {
